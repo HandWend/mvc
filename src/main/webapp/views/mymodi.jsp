@@ -18,7 +18,7 @@
     <div class="jointit w100 tC"><b>회원수정</b></div>
 
     <div class="pd16">
-		<form method="post" action="mymodiAct.jsp" >
+		<form method="post" action="" >
 		<input type="hidden" name="uid" id="uid" value="<%=vo.getUid() %>">
 	        <div>
 	            <h4>이름</h4>

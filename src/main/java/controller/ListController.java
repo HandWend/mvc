@@ -1,24 +1,33 @@
 package controller;
 
 import java.io.IOException;
+import java.util.Collection;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import domain.ListInfos;
+import domain.UseHistoryVO;
+import service.ListServiceImpl;
 
 /**
- * Servlet implementation class HomeController
+ * Servlet implementation class ListController
  */
-@WebServlet("/HomeController")
-public class HomeController extends HttpServlet {
+@WebServlet("/List")
+public class ListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HomeController() {
+    public ListController() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -26,7 +35,17 @@ public class HomeController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession();
+		String uid = (String) session.getAttribute("sessId");
+		
+		ListServiceImpl service = new ListServiceImpl();
+		ListInfos list = service.read(uid);
+		
+		//Controller -> view
+		request.setAttribute("list", list);
+		//views/list.jsp 안에 있는 내용을 주소는 List로 해서 가져와라.
+		RequestDispatcher dispatcher = request.getRequestDispatcher("views/list.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**

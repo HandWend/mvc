@@ -96,7 +96,7 @@ if (navigator.geolocation) {
         <ul class="ulFl">
             <li class="on"><a href="mypage.jsp"><img src="views/img/ico01_on.png"><p>내정보</p></a></li>
             <li><a href="bus.jsp"><img src="views/img/ico02.png"><p>버스탑승</p></a></li>
-            <li><a href="list.jsp"><img src="views/img/ico03.png"><p>이용내역</p></a></li>
+            <li><a href="List"><img src="views/img/ico03.png"><p>이용내역</p></a></li>
         </ul>
     </div>
 </body>
