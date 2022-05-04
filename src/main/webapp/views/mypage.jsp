@@ -1,10 +1,12 @@
 <%@page import="domain.LoginVO"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%
-	LoginVO vo = (LoginVO) request.getAttribute("vo");
-%>
+    <c:out value = "${param.vo}"/> 
+    
+	<%-- //${param.vo} vo = request.getAttribute("vo"); --%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +36,7 @@ if (navigator.geolocation) {
         <div class="b01 pd16">
             <div class="oH w100">
                 <div class="name fL">
-                    <b><%=vo.getUname() %></b>님 안녕하세요!
+                    <b>${vo.getUname()}</b>님 안녕하세요!
                 </div>
                 <div class="fR">
                     <button onclick="location.href='MyModi'">내정보수정</button>
@@ -46,27 +48,27 @@ if (navigator.geolocation) {
             <table>
                 <tr>
                     <td>이름</td>
-                    <td><%=vo.getUname() %></td>
+                    <td>${vo.getUname()}</td>
                 </tr>
                 <tr>
                     <td>휴대폰 번호</td>
-                    <td><%=vo.getUid() %></td>
+                    <td>${vo.getUid()}</td>
                 </tr>
                 <tr>
                     <td>학교</td>
-                    <td><%=vo.getSchoolname() %></td>
+                    <td>${vo.getSchoolname()}</td>
                 </tr>
                 <tr>
                     <td>학년반</td>
-                    <td><%=vo.getGradeclass() %></td>
+                    <td>${vo.getGradeclass()}</td>
                 </tr>
                 <tr>
                     <td>노선</td>
-                    <td><%=vo.getRoute() %></td>
+                    <td>${vo.getRoute()}</td>
                 </tr>
                 <tr>
                     <td>탑승장소</td>
-                    <td><%=vo.getBoardingplace() %></td>
+                    <td>${vo.getBoardingplace()}</td>
                 </tr>
             </table>
         </div>
