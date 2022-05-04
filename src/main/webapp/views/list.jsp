@@ -34,12 +34,12 @@ Collection<UseHistoryVO> backList = list.getBackList();
 			<h2>이용내역</h2>
 		</div>
 		<ul class="ulFl school">
-			<li class="on">등교</li>
+			<li class="on" >등교</li>
 			<li>하교</li>
 		</ul>
 	</div>
 
-	<ul class="list pd16">
+	<ul class="list pd16" id="goSch">
 	<c:forEach var= "aList" items="${list.goList}">
 		<%--  <%
 		{
@@ -68,7 +68,7 @@ Collection<UseHistoryVO> backList = list.getBackList();
 
 	</ul>
 
-	<ul class="list pd16">
+	<ul class="list pd16" >
 		<%-- <%
 		{
 			//안에 있는 값들을 하나씩 꺼내보기
@@ -77,7 +77,7 @@ Collection<UseHistoryVO> backList = list.getBackList();
 				UseHistoryVO vo = it.next();
 		%> --%>
 		<c:forEach var= "bList" items="${list.backList}">
-      <li>
+      <li id="goHome">
                 <div class="fL">
                     <strong>${bList.start} ~ ${bList.end}</strong><br>
                     <span>${bList.bpdate}</span>
@@ -107,8 +107,5 @@ Collection<UseHistoryVO> backList = list.getBackList();
 		</ul>
 	</div>
 
-	<script>
-		
-	</script>
 </body>
 </html>
